@@ -48,16 +48,7 @@ export default compose(
         </a>
       </div>
       <Search onSearch={onSearch} placeholder="javascript" />
-      <div className={style.HotLink}>
-         <Link to="/result#q=Flutter">Flutter</Link>
-         <Link to="/result#q=Javascript">Javascript</Link>
-         <Link to="/result#q=go">GO</Link>
-         <Link to="/result#q=Docker">Docker</Link>
-         <Link to="/result#q=python">Python</Link>
-         <Link to="/result#q=爬虫">爬虫</Link>
-         <Link to="/result#q=人工智能">人工智能</Link>
        
-      </div>
     </div>
   </div>
 ));
