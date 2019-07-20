@@ -16,13 +16,6 @@ import style from "./style.module.less";
 
 import Header from "../components/header";
 
-const numberFormat = number => {
-  const realNumber = parseInt(number);
-  if (realNumber > 10000) {
-    return (realNumber / 10000).toFixed(2) + "万";
-  }
-  return number;
-};
 
 export default compose(
   setDisplayName(__filename),
@@ -108,75 +101,11 @@ export default compose(
       <Header onSearch={onSearch} keyword={keyword} setKeyword={setKeyword} />
     </div>
     <div className={style.Content} style={{ minHeight: height || 420 }}>
-      <div className={style.Result}>
-        {map(item => (
-          <div className={`${style.Card}  "card"`}>
-            <div className={style.CoverWrap}>
-              <a
-                href={item.link}
-                key={item._id}
-                target="_blank"
-                onClick={onView(item.title)}
-              >
-                <img
-                  src={item.cover}
-                  className={style.Cover}
-                  alt={item.title}
-                />
-              </a>
-            </div>
-            <div className={style.Info}>
-              <a
-                href={item.link}
-                key={item._id}
-                rel="noopener noreferrer"
-                target="_blank"
-                className={style.Title}
-                onClick={onView(item.title)}
-              >
-                {item.title}
-              </a>
-              <div className={style.Free}>免费</div>
-              {item.hot && (
-                <div className={style.Hot}>{numberFormat(item.hot)}</div>
-              )}
-              <a
-                href={item.sourceLink}
-                className={style.Source}
-                onClick={onView(item.source)}
-                target="_blank"
-              >
-                {item.source}
-              </a>
-              <div
-                className={style.Intro}
-                dangerouslySetInnerHTM={item.intro}
-              />
-            </div>
-          </div>
-        ))(reslut)}
-
-        {searching && (
-          <div className={style.Loader}>
-            <div className={"ball-triangle-path"}>
-              <div />
-              <div />
-              <div />
-            </div>
-          </div>
-        )}
-
-        {!searching && isEmpty(reslut) && (
-          <div className={style.NoReslut}>
-            很抱歉，没有找到与“
-            <span className={style.HighlightKeyword}>{keyword}</span>
-            ”相关的课程,请检查您的输入是否正确。
-          </div>
-        )}
-      </div>
+       
+ 
     </div>
     <footer className={style.Footer}>
-      © 2019 搜课 Created by Andy | 蜀ICP备18015889号-1
+      © 2019 Research Created by Andy | 蜀ICP备18015889号-1
     </footer>
   </div>
 ));
