@@ -2,8 +2,11 @@ import React from "react";
 import { trim, prop, map, isEmpty, sortBy, flow } from "lodash/fp";
 import QueryString from "query-string";
 import { navigate } from "@reach/router";
-import { Tabs, DragTabList, DragTab, PanelList, Panel } from "react-tabtab";
+import styled from 'styled-components';
+import { Tabs, DragTabList, DragTab, PanelList, Panel } from "react-tabtab/lib/";
 import { simpleSwitch } from "react-tabtab/lib/helpers/move";
+import * as customStyle from 'react-tabtab/lib/themes/material-design';
+
 import axios from "axios";
 
 import {
@@ -121,7 +124,7 @@ export default compose(
             Github
           </a>
           <a
-            title="Github"
+            title="知乎"
             href={`https://www.zhihu.com/search?type=content&q=${keyword}`}
             target="blank"
             className={style.Link}
@@ -129,23 +132,33 @@ export default compose(
             知乎
           </a>
           <a
-            title="Github"
+            title="微信"
             href={`https://weixin.sogou.com/weixin?p=01030402&query=${keyword}&type=2&ie=utf8`}
             target="blank"
             className={style.Link}
           >
             微信
           </a>
+          <a
+            title="Google"
+            href={`https://www.google.com.hk/search?safe=strict&source=hp&q=${keyword}&oq=${keyword}`}
+            target="blank"
+            className={style.Link}
+          >
+          Google
+          </a>
         </div>
         <Tabs
           activeIndex={activeIndex}
           onTabChange={setActiveIndex}
           onTabSequenceChange={handleTabSequenceChange}
+          customStyle={customStyle}
         >
           <DragTabList>
             <DragTab>多吉</DragTab>
             <DragTab>百度</DragTab>
             <DragTab>搜课</DragTab>
+             
           </DragTabList>
           <PanelList>
             <Panel>
@@ -175,6 +188,7 @@ export default compose(
                 frameborder="0"
               />
             </Panel>
+             
           </PanelList>
         </Tabs>
       </div>
