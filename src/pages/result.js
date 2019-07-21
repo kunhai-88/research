@@ -157,8 +157,8 @@ export default compose(
           <DragTabList>
             <DragTab>多吉</DragTab>
             <DragTab>百度</DragTab>
+            <DragTab>微博</DragTab>
             <DragTab>搜课</DragTab>
-             
           </DragTabList>
           <PanelList>
             <Panel>
@@ -181,7 +181,16 @@ export default compose(
             </Panel>
             <Panel>
               <iframe
-                title="搜课"
+                title="微博"
+                src={`https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`}
+                width="100%"
+                height="800"
+                frameborder="0"
+              />
+            </Panel>
+            <Panel>
+              <iframe
+                title="wei"
                 src={`http://souke.xyz/result#q=${keyword}`}
                 width="100%"
                 height="800"
