@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>小熊助手</title>
+    <link href="./src/css/reset.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="src/img/icon/leaf.ico">
+    <link rel="stylesheet" href="./src/css/element.css">
+    <link href="./src/css/app.css" rel="stylesheet">
+    <script src="./src/js/vue.js"></script>
+    <script src="./src/js/element.js"></script>
+    <script src="./src/js/tools.js"></script>
+  </head>
+<body>
+  <div class="menu">
+    
+    <ul class="list clearfix">
+      <li  class="item change  wxm1 active" data-wx="wxw1" >微信号</li>
+      <li  class="item change  wxm2" data-wx="wxw2" >微信号</li>
+      <li  class="item change  wxm3" data-wx="wxw3" >微信号</li>
+      <li  class="item change  wxm4" data-wx="wxw4" >微信号</li>
+      <li  class="item change  wxm5" data-wx="wxw5" >微信号</li>
+      <li  class="item change  wxm6" data-wx="wxw6" >微信号</li>
+      <li  class="item change  wxm7" data-wx="wxw7" >微信号</li>
+      <li  class="item change  wxm8" data-wx="wxw8" >微信号</li>
+    </ul>
+    
+  </div>
+  <div id="wx">
+    <webview id="wxw1"  class="wx-window wxw1 active" data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw1" preload="./src/js/spider.js"></webview>
+    <webview id="wxw2"  class="wx-window wxw2 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw2" preload="./src/js/spider.js" ></webview>
+    <webview id="wxw3"  class="wx-window wxw3 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw3" preload="./src/js/spider.js" ></webview>
+    <webview id="wxw4"  class="wx-window wxw4 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw4" preload="./src/js/spider.js" ></webview>
+    <webview id="wxw5"  class="wx-window wxw5 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw5" preload="./src/js/spider.js" ></webview>
+    <webview id="wxw6"  class="wx-window wxw6 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw6" preload="./src/js/spider.js" ></webview>
+    <webview id="wxw7"  class="wx-window wxw7 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw7" preload="./src/js/spider.js" ></webview>
+    <webview id="wxw8"  class="wx-window wxw8 " data-wxm="wxm1" src="https://wx2.qq.com" partition="persist:wxw8" preload="./src/js/spider.js" ></webview>
+  </div>
+  <div class="pannel">
+<div id="app" class="app">
+  <div class="logout" @click="goLogin()">退出</div>
+  <div class="app-home">
+  <el-tabs v-model="activeName">
+    <el-tab-pane label="快捷语" name="first">
+     <div class="sc-btn-wrap clearfix">
+      <h2 class="title"> 快捷语</h2>
+      <el-button class="sc-setting-btn"  type="success"  size="small" icon="setting"  @click="showAdminDialog()" >设置</el-button>
+      </div>
+      <el-collapse v-model="shortcutTab" >
+         <el-collapse-item class="shortcut" v-for="item in shortcutList" key="item.cid" :title="item.name" :name="item.cid" >
+           <div v-for="(shortcut, index)  in item.shortcut" @click="sendShortcut(shortcut.content)" class="shortcut-item" >
+             <div v-html="randerOneShortcut(index,shortcut.name,shortcut.content)"></div>
+           </div>
+
+         </el-collapse-item>
+      </el-collapse>
+    </el-tab-pane>
+  <el-tab-pane label="图灵机器人" name="second" >
+    <div class="robot-rule">
+     <h2 class="title"> 使用方式</h2>
+     <ul>
+       <li>1.<a href="javascript:;"  @click="openTuring()" >注册</a>图灵机器人</li>
+       <li>2.创建自定义机器人</li>
+       <li>3.开启机器人需要具备的能力(如：知识库、星座运势)</li>
+       <li>4.填入APIkey和secert(不要启用secert)设置成功,可以使用图灵机器人</li>
+     </ul>
+    </div>
+    <el-form class="turing-set" labelPosition="right" label-width="100px" >
+      <el-form-item label="APIKey">
+        <el-input v-model="turingKey"></el-input>
+      </el-form-item>
+      <el-form-item label="sceret">
+        <el-input v-model="turingSecret"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="setTuring()">保存</el-button>
+      </el-form-item>
+    </el-form>
+
+  </el-tab-pane>
+  <el-tab-pane label="帮助" name="third">
+   <div class="about">
+    <h1 class="title">有问题，请加微信咨询</h1>
+    <img class="qrcode" src="./src/img/qrcode.jpg" alt="">
+    </div>
+  </el-tab-pane>
+    <el-tab-pane label="账号" name="fourth">
+      <div class="profile">
+        <div class="row">昵称：{{user&&user.name}}</div>
+        <div class="row">手机号：{{user&&user.phone}}</div>
+        <div class="row out-time">到期时间：{{user&&user.out_time}}</div>
+        <el-button size="small"  @click="resetDialog=true">修改密码</el-button>
+      </div>
+    </el-tab-pane>
+  </el-tabs>
+  </div>
+  <el-dialog title="快捷语设置" size="large"  custom-class="admin-dialog" v-model="adminDialog">
+    <el-tabs v-model="adminTab">
+      <el-tab-pane label="快捷语" name="statement">
+        <div>
+          <el-button type="primary" @click="shortModol=true">添加</el-button>
+          <el-select class="hide"  v-model="selectCategory" clearable placeholder="请选择">
+           <el-option
+             v-for="item in options"
+             :label="item.name"
+             :value="item.cid"
+             :key="item.cid">
+           </el-option>
+         </el-select>
+        </div>
+        <el-table
+          :data="list"
+          border
+          style="width: 100%;margin:20px 0 0 0">
+          <el-table-column
+            label="语句">
+            <template scope="scope">
+            <div v-html="formatToHtml(scope.row.content)"></div>
+            </template>
+          </el-table-column>
+          <el-table-column label="名称" width="200">
+            <template scope="scope">
+            {{scope.row.name }}
+            </template>
+          </el-table-column>
+          <el-table-column label="分组" width="200">
+            <template scope="scope">
+            {{cObj[scope.row.cid]}}
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" width="120">
+            <template scope="scope">
+              <el-button
+                size="small"
+                icon="edit"
+                @click="editShortcut(scope.row)"></el-button>
+              <el-button
+                size="small"
+                type="danger"
+                icon="delete"
+                @click="deleteShortcut(scope.row.sid)"></el-button>
+            </template>
+          </el-table-column>
+         </el-table>
+      </el-tab-pane>
+      <el-tab-pane label="分组" name="category">
+       <el-form :inline="true" :model="category">
+         <el-form-item label="分组名称">
+           <el-input v-model="category.name"></el-input>
+         </el-form-item>
+         <el-form-item>
+           <el-button type="primary" @click="addCategory">添加</el-button>
+         </el-form-item>
+       </el-form>
+       <el-table
+         :data="options"
+         border
+         style="width: 400px">
+         <el-table-column
+           label="分组"
+           >
+           <template scope="scope">
+           {{scope.row.name }}
+           </template>
+         </el-table-column>
+         <el-table-column label="操作" width="68">
+           <template scope="scope">
+             <el-button
+               size="small"
+               type="danger"
+               icon="delete"
+               @click="deleteCategory(scope.row.cid)"></el-button>
+           </template>
+         </el-table-column>
+       </el-table>
+     </el-tab-pane>
+  </el-dialog>
+  <el-dialog :title="editStatement?'编辑快捷语':'添加快捷语'"  custom-class="edit-statement" v-model="shortModol">
+    <el-form label-position="right" label-width="80px" :model="statement">
+      <el-form-item label="分组">
+        <el-select v-model="selectCategory" clearable placeholder="请选择">
+       <el-option
+         v-for="item in options"
+         :label="item.name"
+         :value="item.cid"
+         :key="item.cid">
+       </el-option>
+     </el-select>
+      </el-form-item>
+      <el-form-item label="名称">
+        <el-input type="text" v-model="statement.name"></el-input>
+      </el-form-item>
+      <el-form-item label="语句">
+        <textarea type="textarea" v-model="statement.content" class="el-textarea__inner" id="statement" style="height:100px;" ></textarea>
+        <div class="emoji-wrap">
+          <img class="emoji" v-for="emoji in wxEmoji" :src="emojiSrc(emoji)" @click="insertEmoji(emoji)"/>
+        </div>
+      </el-form-item>
+      <el-form-item>
+       <el-button v-if="editStatement" type="primary" @click="updateStatement()">保存</el-button>
+       <el-button v-else type="primary" @click="addStatement()">保存</el-button>
+      </el-form-item>
+    </el-form>
+  </el-dialog>
+  <el-dialog title="更新提示" size="tiny" custom-class="version-update" v-model="versionUpdate">
+     <div class="note">
+       <div  v-html="formatToHtml(version.note)"></div>
+     </div>
+     <span slot="footer" class="dialog-footer">
+        <el-button v-if="version.state === '0'" @click="versionUpdate=false">取消</el-button>
+        <el-button type="primary" @click="openDownload(version.download)">更新</el-button>
+     </span>
+  </el-dialog>
+  <el-dialog title="修改密码" size="tiny"  v-model="resetDialog">
+    <div class="reset-password">
+      <el-form label-position="right" label-width="80px" :model="reset">
+        <el-form-item label="原密码:">
+          <el-input type="password" v-model="reset.old"></el-input>
+        </el-form-item>
+        <el-form-item label="新密码:">
+          <el-input type="password" v-model="reset.newPw"></el-input>
+        </el-form-item>    
+        <el-form-item label="确认密码:">
+          <el-input type="password" v-model="reset.confirm"></el-input>
+        </el-form-item>  
+      </el-form>
+    </div>
+    <span slot="footer" class="dialog-footer">
+       <el-button  @click="resetDialog=false">取消</el-button>
+       <el-button type="primary" @click="resetPassword()">修改</el-button>
+    </span>
+  </el-dialog>
+  </div>
+</body>
+ 
+  <script>
+    "use strict";
+
+    // You can also require other files to run in this process
+      require('./renderer.js')
+      window.jQuery = window.$ = require('./src/js/jquery.min.js')
+      var i = 1;
+      var OriginShortcuts = [];
+      var Turing = {};
+      var VersionCode = 1;
+     
+      $(document).ready(function() {
+        $('.menu ').on('click', '.change', function(event) {
+            event.preventDefault();
+            var dom = $(this)
+            $('.change').removeClass('active');
+            dom.addClass('active');
+            var wx = dom.data('wx');
+            $('.wx-window').removeClass('active')
+            $('.' + wx).addClass('active')
+                /* Act on the event */
+        });
+        $('.menu').on('click', '.close', function(event) {
+          event.preventDefault();
+          var dom = $(this).parent('.change')
+          var index =  dom.data('wx');
+          var webview = document.getElementById(index);
+          webview.send('logout',true);
+           
+        });
+ 
+      });
+      for (var i = 1; i < 9; i++) {
+          (function(n) {
+              var webview = document.getElementById('wxw' + n)
+              webview.addEventListener('ipc-message', (event) => {
+                if (event.channel === 'user') {
+                  var nickname = event.args[0];
+                  var unread = event.args[1];
+                  var close = '<i class=" close el-icon el-icon-close"></i>'
+                  if (nickname && unread > 0) {
+                      if(unread > 99){
+                        unread = '99+'
+                      }
+                      $('.wxm' + n).html('<span class="badge">'+unread+'</span>'+nicknameclose)
+                  } else if (nickname) {
+                      $('.wxm' + n).html(nickname + close)
+                  }
+                }
+                if(event.channel==='hasLogout'){
+                  $('.wxm' + n).html('微信号')
+                }
+                if(event.channel==='newMsg'){
+                  let msg = event.args[0];
+                  let BaseRequest = event.args[1];
+                  let question = msg.Content;
+                  getAnswer(question,msg,BaseRequest,webview);
+                }
+                if(event.channel==='getRobot'){
+                  if(Turing && Turing.APIkey){
+                    webview.send('createBtn');
+                  }
+                }
+              })
+          })(i)
+      }
+ 
+      function getAnswer(question,msg,BaseRequest,webview){
+         var key ='';
+         if(Turing && Turing.APIkey){
+            key = Turing.APIkey;
+         }else{
+           return;
+         }
+         $.ajax({ 
+          type: "POST", 
+          url: "http://www.tuling123.com/openapi/api", 
+          contentType: "application/json, text/plain, */*", 
+          data: '{"key":"'+key+'","info":"'+question+'","userid":"12323"}', 
+          dataType: "json", 
+          success: function (res) { 
+            let answer= res.text;
+            if(answer){
+              webview.send('robot',answer,msg,BaseRequest);
+            }
+          }, 
+          error: function () { 
+            alert("提交数据失败！"); 
+          } 
+        });
+      } 
+    
+    </script>
+    <script type="text/javascript">
+      const {ipcRenderer} = require('electron');
+      ipcRenderer.send('getUser');
+      const path = require('path');
+      const url = require('url');
+      var uid,ticket,phone;
+
+      ipcRenderer.on('userReply', (event, user) => {
+        for(let i in user){
+          if(user[i]['name']==='uid'){
+            uid = user[i]['value']
+          }
+          if(user[i]['name']==='ticket'){
+            ticket = user[i]['value']
+          }
+          if(user[i]['name']==='phone'){
+            phone = user[i]['value']
+          }
+        }
+        new Vue({
+          el: '#app',
+          data :()=> {
+            return {
+              activeName: 'first',
+              shortcutTab: [],
+              shortcutList:[],
+              adminDialog:false,
+              adminTab:'statement',
+              shortModol:false,
+              sid:0,
+              editStatement:false,
+              category:{
+                name:''
+              },
+              list:[],
+              wxEmoji:wxEmoji,
+              options: [ ],
+              selectCategory: '',
+              statement:{
+                name:'',
+                content:''
+              },
+              cObj:{},
+              turingKey:'',
+              turingSecret:'',
+              versionUpdate:false,
+              version:{},
+              user:{},
+              resetDialog:false,
+              reset:{
+                old:'',
+                new:'',
+                confirm:''
+              }
+            };
+          },
+          created:function(){
+            this.getShortcut();
+            this.getTuring();
+            this.getUser();
+            this.getVersion();
+          },
+          methods: {
+            showAdminDialog(){
+              this.adminDialog = true;
+            },
+            randerOneShortcut(index,name,content){
+              let body = name ? name : content
+              let label ='<span >' +(index + 1) + '.</span>'
+              return label + this.formatToHtml(body)
+            },
+            openTuring(){
+              const shell = require('electron').shell
+              shell.openExternal('http://www.tuling123.com/')
+            },
+            openDownload(url){
+              const shell = require('electron').shell
+              shell.openExternal(url)
+            },
+            formatToHtml(html){
+              if (!html) {
+                return '';
+              }
+              html = html.replace(/\r\n/g, "<br/>");
+              html = html.replace(/\n/g, "<br/>");
+              html = html.replace(/\s/ig, '&nbsp;');
+              return html;
+            },
+            emojiSrc(code){
+              return wxEmojiUrl + wxEmojiCode[code]+'.png'
+            },
+            goLogin(){
+              let href = url.format({
+                pathname: path.join(__dirname, 'login.html'),
+                protocol: 'file:',
+                slashes: true
+              })
+              window.location.href = href
+            },
+            getVersion(){
+              let obj = {uid,ticket}
+              post('/getVersion.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  let code = res.data.code;
+                  if(parseInt(code) > 1){
+                    this.versionUpdate = true;
+                    this.version =  res.data;
+                  }
+                  console.log(res)
+                } 
+              })
+            },
+            getTuring(){
+              let obj = {uid,ticket}
+              post('/getTuring.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  let turing = res.data[0]
+                  this.turingSecret = turing.secret;
+                  this.turingKey = turing.APIkey;
+                  Turing = turing;
+                } 
+              })
+            },
+            getUser(){
+              let obj = {uid,ticket}
+              post('/getUser.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  let outTime = res.data.out;
+                  this.user = res.data;
+                  if(outTime===1){
+                    this.$alert(res.message, '续费提示', {
+                      confirmButtonText: '退出',
+                      showConfirmButton:true,
+                      customClass:'timeout',
+                      callback: action => {
+                        this.goLogin()
+                      }
+                    });
+                  }
+                } 
+              })
+            },
+
+            insertEmoji(txt){
+              let cursorPosition = getCursorPosition('statement');
+              let statement = document.getElementById('statement');
+              let value = statement.value;
+              if (value && value.length != cursorPosition) {
+                var before = value.substring(0, cursorPosition);
+                var after = value.substring(cursorPosition, value.length)
+                value = before + txt + after;
+              } else {
+                value = value + txt;
+              }
+              cursorPosition = cursorPosition + txt.length;
+              this.statement.content = value;
+              statement.focus();
+              setCursorPosition('statement',cursorPosition);
+            },
+            addCategory(){
+              let name = this.category.name;
+              name = $.trim(name);
+              if(!name){
+                this.$message.error('请输入分组名称！');
+                return;
+              }
+              if(name.length>20){
+                this.$message.error('分组名称不能大于10个字！');
+                return;
+              }
+              let obj = {name,uid,ticket}
+              post('/addCategory.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  this.$message({ 
+                    showClose: true,
+                    message: '创建分组成功'
+                  });
+                  this.getShortcut();
+                  this.category.name = '';
+                }else{
+                  this.$message.error('该类目已存在')
+                }
+              })
+            },
+            resetPassword(){
+              let {old,newPw,confirm} = this.reset;
+              old = $.trim(old);
+              newPw = $.trim(newPw);
+              confirm = $.trim(confirm);
+              if(!old){
+                this.$message.error('请输入原始密码！');
+                return;
+              }
+              if(old.length<6){
+                this.$message.error('原始密码不能少于6位！');
+                return;
+              }
+              if(!newPw){
+                this.$message.error('请输入新密码！');
+                return;
+              }
+              if(newPw.length < 6){
+                this.$message.error('新码不能少于6位！');
+                return;
+              }
+              if(newPw !== confirm){
+                this.$message.error('确认密码和新密码不一致！');
+                return;
+              }
+              let obj = {old,newPw,uid,ticket}
+              post('/resetPassword.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  this.$message({ 
+                    showClose: true,
+                    message: '修改密码成功'
+                  });
+                  setTimeout(()=>{
+                    this.goLogin();
+                  },2000)
+                }else{
+                  this.$message.error('修改密码失败')
+                }
+              })
+            },
+            getShortcut(){
+              let obj = {uid,ticket}
+              post('/getShortcut.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  let options = [];
+                  let data = res.data;
+                  let shortcutTab = [];
+                  let list = [];
+                  let cObj = {};
+                  for(let i in data){
+                    let {cid,name} = data[i];
+                    let option = {cid,name};
+                    cObj[cid] = name;
+                    options.push(option);
+                    list = list.concat(data[i].shortcut)
+                    shortcutTab.push(cid);
+                  }
+                  this.cObj = cObj;
+                  this.list = list;
+                  OriginShortcuts = list;
+                  this.options = options;
+                  this.shortcutList = data;
+                  this.shortcutTab = shortcutTab;
+  
+                }else if(res && res.error_code===1014){
+                  this.goLogin()
+                  // this.$message.error(res.message);
+                }
+              })
+            },
+            addStatement(){
+              let {name,content} = this.statement;
+              content = $.trim(content);
+              if(!content){
+                this.$message.error('请输入快捷语！');
+                return;
+              }
+              if(content.length>2000){
+                return;
+                this.$message.error('快捷语不能超过2000字！');
+              }
+              let cid = this.selectCategory;
+              if(!cid){
+                this.$message.error('请选择分组!');
+                return;
+              }
+              let obj = {cid,content,uid,ticket,name}
+              post('/addShortcut.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  this.$message({ 
+                    showClose: true,
+                    message: '快捷语添加成功！'
+                  });
+                  this.getShortcut();
+                  this.statement.name = '';
+                  this.statement.content = '';
+                  this.shortModol = false;
+                }else{
+                  this.$message.error('快捷语已存在')
+                }
+              })
+            },
+            updateStatement(){
+              let {name,content} = this.statement;
+              content = $.trim(content);
+              if(!content){
+                this.$message.error('快捷语不能为空！');
+                return;
+              }
+              if(content.length>2000){
+                return;
+                this.$message.error('快捷语不能超过2000字！');
+              }
+              let cid = this.selectCategory;
+              if(!cid){
+                this.$message.error('请选择分组!');
+                return;
+              }
+              let sid = this.sid;
+              let obj = {cid,content,uid,ticket,name,sid}
+              post('/updateShortcut.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                  this.$message({ 
+                    showClose: true,
+                    message: '编辑快捷语成功'
+                  });
+                  this.getShortcut();
+                  this.statement.name = '';
+                  this.statement.content = '';
+                  this.editStatement = false;
+                  this.shortModol = false;
+                }else{
+                  this.$message.error('编辑快捷语失败')
+                }
+              })
+            },
+            setTuring(){
+              let {turingKey,turingSecret} = this;
+              turingKey = $.trim(turingKey);
+              if(!turingKey){
+                this.$message.error('APIKey不能为空！');
+                return;
+              }
+              if(turingKey.length>50){
+                return;
+                this.$message.error('APIKey不能超过50字！');
+              }
+              var question = '你好啊'
+              let self = this;
+              $.ajax({ 
+                type: "POST", 
+                url: "http://www.tuling123.com/openapi/api", 
+                contentType: "application/json, text/plain, */*", 
+                data: '{"key":"'+turingKey+'","info":"'+question+'","userid":"'+uid+'"}', 
+                dataType: "json", 
+                success: function (res) { 
+                  let code= res.code;
+                  if(code!==100000){
+                    self.$message.error(res.text)
+                    return;
+                  } 
+                  let obj = {APIKey:turingKey,secret:turingSecret,uid,ticket}
+                  post('/setTuring.php',obj).then(res=>{
+                    if(res && res.error_code === 0){
+                      self.$message({ 
+                        showClose: true,
+                        message: '设置成功'
+                      });
+                    }else{
+                      self.$message.error('设置失败')
+                    }
+                  })
+                }, 
+                error: function () { 
+                  self.$message.error('图灵机器人Key错误')
+                } 
+              });
+      
+              
+            },
+            editShortcut(shortcut){
+              this.shortModol = true;
+              this.editStatement = true;
+              this.statement = shortcut;
+              this.sid = shortcut.sid;
+              this.selectCategory = shortcut.cid;
+              console.log(shortcut)
+            },
+            deleteCategory(cid){
+              this.$confirm('此操作将删除该分组下所有快捷语, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+              }).then(() => {
+                let obj = {uid,ticket,cid}
+                post('/deleteCategory.php',obj).then(res=>{
+                  if(res && res.error_code === 0){
+                     this.$message({ 
+                      showClose: true,
+                      message: '删除分组成功！'
+                    });
+                    this.getShortcut();
+                  }else{
+                    this.$message.error('删除分组失败！');
+                  }
+                })
+              });
+            },
+            deleteShortcut(sid){
+              let obj = {uid,ticket,sid}
+              post('/deleteShortcut.php',obj).then(res=>{
+                if(res && res.error_code === 0){
+                   this.$message({ 
+                    showClose: true,
+                    message: '删除快捷语！'
+                  });
+                  this.getShortcut();
+                }else{
+                  this.$message.error('删除快捷语失败！');
+                }
+              })
+            },
+            sendShortcut(msg){
+              var webview =  document.querySelector('.wx-window.active');
+              webview.send('shortcut',msg);
+            }
+          }
+        })
+      })
+    </script>
+ 
+</html>
