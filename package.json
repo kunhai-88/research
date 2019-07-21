@@ -63,6 +63,16 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1"
   },
+  "browserslist": [
+    "ie_mob >= 10",
+    "ff >= 30",
+    "chrome >= 34",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 2.3",
+    "bb >= 10"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ifrontend-xyz/souke"
