@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="http://www.suiyuanka.com">
-    <img alt="Awesome Course" src="http://www.suiyuanka.com/favicon.png" width="500" />
+    <img alt="Awesome Course" src="http://www.suiyuanka.com/favicon.png" width="64" />
   </a>
 </p>
 <h1 align="center">
