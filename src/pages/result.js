@@ -153,6 +153,7 @@ export default compose(
           onTabChange={setActiveIndex}
           onTabSequenceChange={handleTabSequenceChange}
           customStyle={customStyle}
+          showModalButton={false}
         >
           <DragTabList>
             <DragTab>多吉</DragTab>
