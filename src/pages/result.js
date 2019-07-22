@@ -153,7 +153,7 @@ export default compose(
             Google
           </a>
           <a
-            title="Google"
+            title="掘金"
             href={`https://juejin.im/search?query=${keyword}&type=all`}
             target="blank"
             className={style.Link}
