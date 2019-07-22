@@ -159,6 +159,7 @@ export default compose(
             <DragTab>多吉</DragTab>
             <DragTab>百度</DragTab>
             <DragTab>微博</DragTab>
+            <DragTab>SegmentFault</DragTab>
             <DragTab>搜课</DragTab>
           </DragTabList>
           <PanelList>
@@ -189,6 +190,15 @@ export default compose(
                 frameborder="0"
               />
             </Panel>
+            <Panel>
+            <iframe
+              title="wei"
+              src={`https://segmentfault.com/search?q=${keyword}`}
+              width="100%"
+              height="800"
+              frameborder="0"
+            />
+          </Panel>
             <Panel>
               <iframe
                 title="wei"
