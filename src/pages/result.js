@@ -169,6 +169,7 @@ export default compose(
             <DragTab>百度</DragTab>
             <DragTab>微博</DragTab>
             <DragTab>SegmentFault</DragTab>
+            <DragTab>翻译</DragTab>
             <DragTab>搜课</DragTab>
           </DragTabList>
           <PanelList>
@@ -208,7 +209,15 @@ export default compose(
                 frameborder="0"
               />
             </Panel>
-
+            <Panel>
+              <iframe
+                title="翻译"
+                src={`https://fanyi.baidu.com/#en/zh/${keyword}`}
+                width="100%"
+                height="800"
+                frameborder="0"
+              />
+            </Panel>
             <Panel>
               <iframe
                 title="wei"
