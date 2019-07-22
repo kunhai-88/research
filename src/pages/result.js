@@ -62,18 +62,6 @@ export default compose(
       window.location.hash = `#q=${q}`;
       if (!isEmpty(q)) {
         setSearching(true);
-        axios
-          .get(`http://localhost:3066/search?type=content&q=${q}`)
-          .then(({ data }) => {
-            console.log(data);
-            setSearching(false);
-            setResult(data);
-          })
-          .catch(e => {
-            console.log(e);
-            setSearching(false);
-            setResult([]);
-          });
       } else {
         navigate(`/`);
       }
@@ -153,12 +141,20 @@ export default compose(
             Google
           </a>
           <a
+            title="简书"
+            href={`https://www.jianshu.com/search?q=${keyword}`}
+            target="blank"
+            className={style.Link}
+          >
+          简书
+          </a>
+          <a
             title="掘金"
             href={`https://juejin.im/search?query=${keyword}&type=all`}
             target="blank"
             className={style.Link}
           >
-          掘金
+            掘金
           </a>
         </div>
         <Tabs
@@ -173,7 +169,6 @@ export default compose(
             <DragTab>百度</DragTab>
             <DragTab>微博</DragTab>
             <DragTab>SegmentFault</DragTab>
- 
             <DragTab>搜课</DragTab>
           </DragTabList>
           <PanelList>
@@ -213,7 +208,7 @@ export default compose(
                 frameborder="0"
               />
             </Panel>
-            
+
             <Panel>
               <iframe
                 title="wei"
