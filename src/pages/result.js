@@ -2,10 +2,15 @@ import React from "react";
 import { trim, prop, map, isEmpty, sortBy, flow } from "lodash/fp";
 import QueryString from "query-string";
 import { navigate } from "@reach/router";
-import styled from 'styled-components';
-import { Tabs, DragTabList, DragTab, PanelList, Panel } from "react-tabtab/lib/";
+import {
+  Tabs,
+  DragTabList,
+  DragTab,
+  PanelList,
+  Panel
+} from "react-tabtab/lib/";
 import { simpleSwitch } from "react-tabtab/lib/helpers/move";
-import * as customStyle from 'react-tabtab/lib/themes/material-design';
+import * as customStyle from "react-tabtab/lib/themes/material-design";
 
 import axios from "axios";
 
@@ -145,7 +150,15 @@ export default compose(
             target="blank"
             className={style.Link}
           >
-          Google
+            Google
+          </a>
+          <a
+            title="Google"
+            href={`https://juejin.im/search?query=${keyword}&type=all`}
+            target="blank"
+            className={style.Link}
+          >
+          掘金
           </a>
         </div>
         <Tabs
@@ -160,6 +173,7 @@ export default compose(
             <DragTab>百度</DragTab>
             <DragTab>微博</DragTab>
             <DragTab>SegmentFault</DragTab>
+ 
             <DragTab>搜课</DragTab>
           </DragTabList>
           <PanelList>
@@ -191,14 +205,15 @@ export default compose(
               />
             </Panel>
             <Panel>
-            <iframe
-              title="wei"
-              src={`https://segmentfault.com/search?q=${keyword}`}
-              width="100%"
-              height="800"
-              frameborder="0"
-            />
-          </Panel>
+              <iframe
+                title="SegmentFault"
+                src={`https://segmentfault.com/search?q=${keyword}`}
+                width="100%"
+                height="800"
+                frameborder="0"
+              />
+            </Panel>
+            
             <Panel>
               <iframe
                 title="wei"
@@ -208,7 +223,6 @@ export default compose(
                 frameborder="0"
               />
             </Panel>
-             
           </PanelList>
         </Tabs>
       </div>
