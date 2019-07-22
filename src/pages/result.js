@@ -47,10 +47,11 @@ export default compose(
   lifecycle({
     componentDidMount() {
       const search = prop("location.hash")(this.props);
-      const { setKeyword, setSearching, setHeight } = this.props;
+      const { setKeyword, setSearching } = this.props;
       const keywords = QueryString.parse(search);
-      setSearching(true);
+     
       setKeyword(keywords.q);
+      setSearching(true);
       this.props.onResize();
       window.onresize = this.props.onResize;
     }
@@ -157,7 +158,7 @@ export default compose(
             掘金
           </a>
         </div>
-        <Tabs
+        {searching&&<Tabs
           activeIndex={activeIndex}
           onTabChange={setActiveIndex}
           onTabSequenceChange={handleTabSequenceChange}
@@ -172,7 +173,7 @@ export default compose(
             <DragTab>翻译</DragTab>
             <DragTab>搜课</DragTab>
           </DragTabList>
-          <PanelList>
+         <PanelList>
             <Panel>
               <iframe
                 title="多吉"
@@ -228,7 +229,7 @@ export default compose(
               />
             </Panel>
           </PanelList>
-        </Tabs>
+        </Tabs>}
       </div>
       <footer className={style.Footer}>
         © 2019 Research Created by Andy | 蜀ICP备18015889号-1
