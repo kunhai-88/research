@@ -11,9 +11,6 @@ import {
 } from "react-tabtab/lib/";
 import { simpleSwitch } from "react-tabtab/lib/helpers/move";
 import * as customStyle from "react-tabtab/lib/themes/material-design";
-
-import axios from "axios";
-
 import {
   compose,
   setDisplayName,
@@ -26,6 +23,18 @@ import "./lib.css";
 import style from "./style.module.less";
 
 import Header from "../components/header";
+
+const createPanel = (url, title) => (
+  <Panel>
+    <iframe
+      title={title}
+      src={url}
+      width="100%"
+      height="800"
+      frameborder="0"
+    />
+  </Panel>
+);
 
 export default compose(
   setDisplayName(__filename),
@@ -49,7 +58,7 @@ export default compose(
       const search = prop("location.hash")(this.props);
       const { setKeyword, setSearching } = this.props;
       const keywords = QueryString.parse(search);
-     
+
       setKeyword(keywords.q);
       setSearching(true);
       this.props.onResize();
@@ -147,7 +156,7 @@ export default compose(
             target="blank"
             className={style.Link}
           >
-          简书
+            简书
           </a>
           <a
             title="掘金"
@@ -158,78 +167,39 @@ export default compose(
             掘金
           </a>
         </div>
-        {searching&&<Tabs
-          activeIndex={activeIndex}
-          onTabChange={setActiveIndex}
-          onTabSequenceChange={handleTabSequenceChange}
-          customStyle={customStyle}
-          showModalButton={false}
-        >
-          <DragTabList>
-            <DragTab>多吉</DragTab>
-            <DragTab>百度</DragTab>
-            <DragTab>微博</DragTab>
-            <DragTab>SegmentFault</DragTab>
-            <DragTab>翻译</DragTab>
-            <DragTab>搜课</DragTab>
-          </DragTabList>
-         <PanelList>
-            <Panel>
-              <iframe
-                title="多吉"
-                src={`https://dogedoge.com/results?q=${keyword}`}
-                width="100%"
-                height="800"
-                frameborder="0"
-              />
-            </Panel>
-            <Panel>
-              <iframe
-                title="百度"
-                src={`https://www.baidu.com/s?wd=${keyword}`}
-                width="100%"
-                height="800"
-                frameborder="0"
-              />
-            </Panel>
-            <Panel>
-              <iframe
-                title="微博"
-                src={`https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`}
-                width="100%"
-                height="800"
-                frameborder="0"
-              />
-            </Panel>
-            <Panel>
-              <iframe
-                title="SegmentFault"
-                src={`https://segmentfault.com/search?q=${keyword}`}
-                width="100%"
-                height="800"
-                frameborder="0"
-              />
-            </Panel>
-            <Panel>
-              <iframe
-                title="翻译"
-                src={`https://fanyi.baidu.com/#en/zh/${keyword}`}
-                width="100%"
-                height="800"
-                frameborder="0"
-              />
-            </Panel>
-            <Panel>
-              <iframe
-                title="wei"
-                src={`http://souke.xyz/result#q=${keyword}`}
-                width="100%"
-                height="800"
-                frameborder="0"
-              />
-            </Panel>
-          </PanelList>
-        </Tabs>}
+        {searching && (
+          <Tabs
+            activeIndex={activeIndex}
+            onTabChange={setActiveIndex}
+            onTabSequenceChange={handleTabSequenceChange}
+            customStyle={customStyle}
+            showModalButton={false}
+          >
+            <DragTabList>
+              <DragTab>多吉</DragTab>
+              <DragTab>百度</DragTab>
+              <DragTab>微博</DragTab>
+              <DragTab>SegmentFault</DragTab>
+              <DragTab>翻译</DragTab>
+              <DragTab>搜课</DragTab>
+              <DragTab>Yarn</DragTab>
+            </DragTabList>
+            <PanelList>
+         
+              {createPanel(`https://dogedoge.com/results?q=${keyword}`,'多吉')}
+              {createPanel(`https://www.baidu.com/s?wd=${keyword}`,'百度')}
+
+              {createPanel(`https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`,'微博')}
+              {createPanel(`https://segmentfault.com/search?q=${keyword}`,'SegmentFault')}
+              {createPanel(`https://fanyi.baidu.com/#en/zh/${keyword}`,'翻译')}
+               
+              {createPanel(`http://souke.xyz/result#q=${keyword}`,'搜课')}
+               
+              {createPanel(`https://www.yarnpkg.com/zh-Hant/packages?q=${keyword}`,'yarn')}
+               
+            </PanelList>
+          </Tabs>
+        )}
       </div>
       <footer className={style.Footer}>
         © 2019 Research Created by Andy | 蜀ICP备18015889号-1
