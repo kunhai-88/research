@@ -31,7 +31,7 @@ export default compose(
     onSearch: () => value => {
       const q = trim(value);
       if (!isEmpty(q)) {
-        navigate(`/result#q=${q}`);
+        navigate(`/result?q=${q}`);
       }
     }
   })

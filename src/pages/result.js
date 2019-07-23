@@ -1,5 +1,5 @@
 import React from "react";
-import { trim, prop, map, isEmpty, sortBy, flow } from "lodash/fp";
+import { trim, prop, isEmpty, sortBy, flow } from "lodash/fp";
 import QueryString from "query-string";
 import { navigate } from "@reach/router";
 import {
@@ -53,32 +53,26 @@ export default compose(
       setHeight(height - 148);
     }
   }),
-  lifecycle({
-    componentDidMount() {
-      const search = prop("location.hash")(this.props);
-      const { setKeyword, setSearching } = this.props;
-      const keywords = QueryString.parse(search);
-
-      setKeyword(keywords.q);
-      setSearching(true);
-      this.props.onResize();
-      window.onresize = this.props.onResize;
-    }
+ 
+  withHandlers({
+    onView: () => title => {
+      if (_hmt) {
+        _hmt.push(["_trackEvent", "搜索", "关机字", title, 1]);
+      }
+    },
   }),
   withHandlers({
-    onSearch: ({ setResult, setKeyword, setSearching }) => value => {
+    onSearch: ({ setKeyword, setSearching, onView }) => value => {
       const q = trim(value);
       setKeyword(q);
-      window.location.hash = `#q=${q}`;
+      
       if (!isEmpty(q)) {
+        onView(value);
+        document.title = value
         setSearching(true);
       } else {
         navigate(`/`);
-      }
-    },
-    onView: () => title => () => {
-      if (_hmt) {
-        _hmt.push(["_trackEvent", "课程", "查看", title, 1]);
+        document.title = 'Research - 探索未知'
       }
     },
     handleTabSequenceChange: ({ setActiveIndex, tabs, setTabs }) => ({
@@ -88,6 +82,24 @@ export default compose(
       setActiveIndex(newIndex);
       setTabs(simpleSwitch(tabs, oldIndex, newIndex));
     }
+  }),
+  lifecycle({
+    componentDidMount() {
+      const search = document.location.search.substring(1);
+      const { onSearch, setSearching } = this.props;
+      const keywords = QueryString.parse(search);
+
+      onSearch(keywords.q);
+      setSearching(true);
+      this.props.onResize();
+      window.onresize = this.props.onResize;
+    }
+  }),
+  withHandlers({
+    onSearch: ({ onSearch }) => q => {
+      window.location.search = `?q=${q}`; 
+      onSearch(q);
+    },
   }),
   withProps(({ reslut }) => {
     return {
@@ -107,7 +119,6 @@ export default compose(
     setKeyword,
     searching,
     height,
-    onView,
     setActiveIndex,
     handleTabSequenceChange,
     tabs

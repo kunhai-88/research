@@ -8,4 +8,4 @@
   Research
 </h1>
 
-[Research](http://www.suiyuanka.com/),搜索链接快捷生成.
+[Research](http://www.suiyuanka.com/),对探索未知.
