@@ -195,7 +195,7 @@ export default compose(
                
               {createPanel(`http://souke.xyz/result#q=${keyword}`,'搜课')}
                
-              {createPanel(`https://www.yarnpkg.com/zh-Hant/packages?q=${keyword}`,'yarn')}
+              {createPanel(`https://www.yarnpkg.com/zh-Hans/packages?q=${keyword}`,'yarn')}
                
             </PanelList>
           </Tabs>
