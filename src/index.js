@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Index from './pages/index';
-import Result from './pages/result';
+import Root from './pages/root.js';
  
 import { Router } from "@reach/router";
 
@@ -10,9 +9,7 @@ class App extends React.Component {
     return (
       <div>
       <Router>
-        <Index  path="*" />
-        <Result path="result" />
-    
+        <Root  path="*" />
       </Router>
       </div>
     );
