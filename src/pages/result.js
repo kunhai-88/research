@@ -121,7 +121,6 @@ export default compose(
     height,
     setActiveIndex,
     handleTabSequenceChange,
-    tabs
   }) => (
     <div>
       <div className={style.Header}>
