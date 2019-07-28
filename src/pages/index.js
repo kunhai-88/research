@@ -62,7 +62,7 @@ export default compose(
   withHandlers({
     onView: () => title => {
       if (_hmt) {
-        _hmt.push(["_trackEvent", "搜索", "关机字", title, 1]);
+        _hmt.push(["_trackEvent", "搜索", "关键字", title, 1]);
       }
     }
   }),
