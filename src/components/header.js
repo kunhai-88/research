@@ -12,9 +12,9 @@ export default compose(
       setKeyword(e.target.value);
     },
   })
-)(({ onSearch, keyword, onChange }) => (
+)(({ onSearch, keyword, onChange, setKeyword }) => (
   <header className={style.Headerbar}>
-    <Link to="/"><img className={style.TopLogo} src={favicon} alt="" /></Link>
+    <Link to="/" onClick={()=>setKeyword('')}><img className={style.TopLogo} src={favicon} alt="" /></Link>
     <Search
       className={style.TopSearch}
       size="large"
