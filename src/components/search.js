@@ -6,6 +6,7 @@ import {
   withState,
   lifecycle
 } from "recompose";
+import { isEmpty, trim } from "lodash/fp";
 import style from "./style.module.less";
 import search from '../../static/search.png';
 
@@ -22,8 +23,11 @@ export default compose(
     };
   }),
   withHandlers({
-    onChange: ({ setInnerValue, onChange }) => e => {
+    onChange: ({ setInnerValue, onChange, onSearch }) => e => {
       setInnerValue(e.target.value);
+      if(isEmpty(trim(e.target.value))){
+        onSearch('');
+      }
       if(onChange){
         onChange(e);
       }
@@ -40,6 +44,7 @@ export default compose(
   lifecycle({
     componentDidMount() {
       this.props.getRef().focus();
+      this.props.setInnerValue(this.props.value);
     },
     componentWillReceiveProps(nextProps) {
       if (nextProps["value"] != this.props.value) {

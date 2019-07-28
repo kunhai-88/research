@@ -1,5 +1,5 @@
 import React from "react";
-import { prop, trim, isEmpty, flow } from "lodash/fp";
+import { prop, trim, isEmpty } from "lodash/fp";
 import {
   compose,
   setDisplayName,
@@ -18,7 +18,6 @@ import {
 import { simpleSwitch } from "react-tabtab/lib/helpers/move";
 import * as customStyle from "react-tabtab/lib/themes/material-design";
 
-import { navigate, Link } from "@reach/router";
 import Search from "../components/search";
 import { get } from "../../shared/request";
 import logo from "../../static/logo-white.png";
@@ -77,7 +76,6 @@ export default compose(
         document.title = value;
         setSearching(true);
       } else {
-        navigate(`/`);
         document.title = "Research - 探索未知";
       }
     },
@@ -111,14 +109,6 @@ export default compose(
       onSearch(q);
     }
   }),
-  withHandlers({
-    onSearch: () => value => {
-      const q = trim(value);
-      if (!isEmpty(q)) {
-        navigate(`/?q=${q}`);
-      }
-    }
-  })
 )(({ 
   cover, 
   onSearch, 
