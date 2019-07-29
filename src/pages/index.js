@@ -58,19 +58,12 @@ export default compose(
       setHeight(height - 148);
     }
   }),
-
   withHandlers({
-    onView: () => title => {
-      
-    }
-  }),
-  withHandlers({
-    onSearch: ({ setKeyword, setSearching, onView }) => value => {
+    onSearch: ({ setKeyword, setSearching }) => value => {
       const q = trim(value);
       setKeyword(q);
 
       if (!isEmpty(q)) {
-        onView(value);
         document.title = value;
         setSearching(true);
       } else {
