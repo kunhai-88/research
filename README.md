@@ -8,4 +8,5 @@
   Research
 </h1>
 
-[Research](http://www.suiyuanka.com/),对探索未知.
+## Research
+[Research](http://www.suiyuanka.com/),快速搜索相关内容.
