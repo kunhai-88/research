@@ -6,10 +6,8 @@ import {
   withState,
   lifecycle
 } from "recompose";
-import { isEmpty, trim } from "lodash/fp";
 import style from "./style.module.less";
-import search from '../../static/search.png';
-
+import search from '../static/search.png';
 export default compose(
   setDisplayName(__filename),
   withState("innerValue", "setInnerValue"),
@@ -25,9 +23,6 @@ export default compose(
   withHandlers({
     onChange: ({ setInnerValue, onChange, onSearch }) => e => {
       setInnerValue(e.target.value);
-      if(isEmpty(trim(e.target.value))){
-        onSearch('');
-      }
       if(onChange){
         onChange(e);
       }

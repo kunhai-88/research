@@ -1,5 +1,4 @@
 import React from "react";
-import { prop, trim, isEmpty } from "lodash/fp";
 import {
   compose,
   setDisplayName,
@@ -18,14 +17,11 @@ import {
 import { simpleSwitch } from "react-tabtab/lib/helpers/move";
 import * as customStyle from "react-tabtab/lib/themes/material-design";
 
-import Search from "../components/search";
-import { get } from "../../shared/request";
-import logo from "../../static/logo-white.png";
-import iconCircle from "../../static/info-circle.png";
-import "./lib.css";
+import Search from "./search";
+import logo from "../static/logo-white.png";
 import style from "./index.less";
-
-import Header from "../components/header";
+import Header from "./header";
+import { keywordLength } from './utils';
 
 const createPanel = (url, title) => (
   <Panel>
@@ -42,7 +38,6 @@ const createPanel = (url, title) => (
 
 export default compose(
   setDisplayName(__filename),
-  withState("cover", "setCover", {}),
   withState("activeIndex", "setActiveIndex", 0),
   withState("tabs", "setTabs", []),
   withState("result", "setResult", []),
@@ -60,10 +55,10 @@ export default compose(
   }),
   withHandlers({
     onSearch: ({ setKeyword, setSearching }) => value => {
-      const q = trim(value);
+      const q = value;
       setKeyword(q);
 
-      if (!isEmpty(q)) {
+      if (keywordLength(q)) {
         document.title = value;
         setSearching(true);
       } else {
@@ -80,10 +75,6 @@ export default compose(
   }),
   lifecycle({
     componentDidMount() {
-      const { setCover } = this.props;
-      get(`/cover`).then(({ data }) => {
-        setCover(data);
-      });
       const search = document.location.search.substring(1);
       const { onSearch, setSearching } = this.props;
       const keywords = QueryString.parse(search);
@@ -216,16 +207,12 @@ export default compose(
     <div
       className={style.SearchPage}
       style={{
-        backgroundImage: `url(${prop("link")(cover) ||
-          "https://cn.bing.com/th?id=OHR.TrilliumLake_EN-CN1200736040_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"})`
+        backgroundImage: "url(https://cn.bing.com/th?id=OHR.TrilliumLake_EN-CN1200736040_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp)"
       }}
     >
       <div className={style.SearchBar}>
         <div className={style.LogoWrap}>
           <img className={style.Logo} src={logo} alt="" />
-          <a target="blank" href={prop("search")(cover)}>
-            <img src={iconCircle} className={style.InfoIcon} />
-          </a>
         </div>
         <Search onSearch={onSearch} placeholder="javascript" />
       </div>

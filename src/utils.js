@@ -1,0 +1,1 @@
+export const keywordLength = (str) => str && str.trim() && str.trim().length;
