@@ -6,7 +6,7 @@ import {
   withState,
   lifecycle
 } from "recompose";
-import style from "./style.module.less";
+import style from "./style.less";
 import search from '../static/search.png';
 export default compose(
   setDisplayName(__filename),

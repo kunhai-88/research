@@ -21,7 +21,8 @@ import Search from "./search";
 import logo from "../static/logo-white.png";
 import style from "./index.less";
 import Header from "./header";
-import { keywordLength } from './utils';
+
+const keywordLength = (str) => str && str.trim() && str.trim().length;
 
 const createPanel = (url, title) => (
   <Panel>
@@ -91,8 +92,7 @@ export default compose(
       onSearch(q);
     }
   }),
-)(({ 
-  cover, 
+)(({
   onSearch, 
   keyword, 
   setKeyword,

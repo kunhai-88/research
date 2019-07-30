@@ -1,7 +1,7 @@
 import React from "react";
 import { compose, setDisplayName, withHandlers } from "recompose";
 import Search from './search';
-import style from "./style.module.less";
+import style from "./style.less";
 import favicon from '../static/favicon.png';
 import { Link } from "@reach/router";
 
