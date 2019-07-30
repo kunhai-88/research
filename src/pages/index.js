@@ -217,7 +217,7 @@ export default compose(
       className={style.SearchPage}
       style={{
         backgroundImage: `url(${prop("link")(cover) ||
-          "https://cn.bing.com/th?id=OHR.GodsGarden_EN-CN6732844646_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hpå"})`
+          "https://cn.bing.com/th?id=OHR.TrilliumLake_EN-CN1200736040_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"})`
       }}
     >
       <div className={style.SearchBar}>
