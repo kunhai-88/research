@@ -13,4 +13,4 @@
 [Research](http://www.suiyuanka.com/),快速搜索相关内容.
 
 
- <img alt="Research" src="http://www.suiyuanka.com/screenshot.png" width="64" />
+ <img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/screenshot.png" width="100%" />
