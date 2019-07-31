@@ -9,8 +9,11 @@
   Research
 </h1>
 
-## Research
+# Research
 [Research](http://www.suiyuanka.com/),快速搜索相关内容.
 
 
  <img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/screenshot.png" width="100%" />
+
+ ## 在地址栏中使用效果更佳
+ 
