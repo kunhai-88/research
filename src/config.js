@@ -48,6 +48,10 @@ export const tabs = (keyword)=>[
     link: `https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`,
   },
   {
+    title: "翻译",
+    link: `https://fanyi.baidu.com/#en/zh/${keyword}`,
+  },
+  {
     title: "SegmentFault",
     link:  `https://segmentfault.com/search?q=${keyword}`,
   },
