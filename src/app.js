@@ -25,12 +25,6 @@ import { links, tabs } from "./config";
 
 const keywordLength = str => str && str.trim() && str.trim().length;
 
-const createPanel = (url, title) => (
-  <Panel>
-    <iframe title={title} src={url} width="100%" height="800" frameborder="0" />
-  </Panel>
-);
-
 export default compose(
   setDisplayName(__filename),
   withState("activeIndex", "setActiveIndex", 0),

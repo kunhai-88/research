@@ -7,12 +7,7 @@ import { Link } from "@reach/router";
 
 export default compose(
   setDisplayName(__filename),
-  withHandlers({
-    onChange: ({ setKeyword }) => e => {
-      setKeyword(e.target.value);
-    },
-  })
-)(({ onSearch, keyword, onChange, setKeyword }) => (
+)(({ onSearch, keyword, setKeyword }) => (
   <header className={style.Headerbar}>
     <Link to="/" onClick={()=>setKeyword('')}><img className={style.TopLogo} src={favicon} alt="" /></Link>
     <Search
@@ -20,7 +15,7 @@ export default compose(
       size="large"
       value={keyword}
       onSearch={onSearch}
-      onChange={onChange}
+      onChange={setKeyword}
     />
   </header>
 ));

@@ -8,6 +8,7 @@ import {
 } from "recompose";
 import style from "./style.less";
 import search from '../static/search.png';
+let timer = null;
 export default compose(
   setDisplayName(__filename),
   withState("innerValue", "setInnerValue"),
@@ -21,10 +22,14 @@ export default compose(
     };
   }),
   withHandlers({
-    onChange: ({ setInnerValue, onChange, onSearch }) => e => {
-      setInnerValue(e.target.value);
+    onChange: ({ setInnerValue, onChange }) => e => {
+      let value = e.target.value;
+      setInnerValue(value);
+      clearTimeout(timer);
       if(onChange){
-        onChange(e);
+        timer = setTimeout(()=>{
+          onChange(value);
+        },300)
       }
     },
     onKeyUp: ({ onSearch, innerValue }) => e => {
