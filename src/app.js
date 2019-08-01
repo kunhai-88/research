@@ -19,7 +19,7 @@ import * as customStyle from "react-tabtab/lib/themes/material-design";
 
 import Search from "./search";
 import logo from "../static/logo-white.png";
-import style from "./index.less";
+import style from "./style.less";
 import Header from "./header";
 import { links, tabs } from "./config";
 
