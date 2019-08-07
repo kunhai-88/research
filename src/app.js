@@ -39,7 +39,7 @@ export default compose(
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
-      setHeight(height - 148);
+      setHeight(height - 90);
     }
   }),
   withHandlers({
@@ -100,7 +100,7 @@ export default compose(
             setKeyword={setKeyword}
           />
         </div>
-        <div className={style.Content} style={{ minHeight: height || 420 }}>
+        <div className={style.Content} style={{ height: height || 420 }}>
           <div className={style.LinkWrap}>
             {links(keyword).map(({ link, title }) => (
               <a
@@ -144,7 +144,7 @@ export default compose(
           )}
         </div>
         <footer className={style.Footer}>
-          © 2019 Research Created by Andy | 蜀ICP备18015889号-1
+         <a className={style.Github} href="https://github.com/ifrontend-xyz/research" target="_blank">Github</a> © 2019 Research Created by Andy &nbsp; | &nbsp; 蜀ICP备18015889号-1
         </footer>
       </div>
     ) : (

@@ -1,7 +1,7 @@
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -47,7 +47,7 @@ if (DEBUG) {
   );
   
 }
-plugins.push(new BundleAnalyzerPlugin());
+// plugins.push(new BundleAnalyzerPlugin());
 
 const cssLoaderWithModule = {
   importLoaders: 1,
