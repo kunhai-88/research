@@ -56,6 +56,10 @@ export const tabs = (keyword)=>[
     link: `https://fanyi.baidu.com/#en/zh/${keyword}`,
   },
   {
+    title: "语雀",
+    link: `https://www.yuque.com/search?&q=${keyword}`,
+  },
+  {
     title: "SegmentFault",
     link:  `https://segmentfault.com/search?q=${keyword}`,
   },
