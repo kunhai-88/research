@@ -74,7 +74,7 @@ export const tabs = (keyword)=>[
   
   {
     title: "搜课",
-    link: `http://souke.xyz/result#q=${keyword}`
+    link: `http://www.souke.xyz/result#q=${keyword}`
   },
   
 ];
