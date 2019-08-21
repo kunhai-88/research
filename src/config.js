@@ -37,7 +37,7 @@ export const links = keyword => [
 export const tabs = (keyword)=>[
   {
     title: "多吉",
-    link: `https://dogedoge.com/results?q=${keyword}`
+    link: `https://www.dogedoge.com/results?q=${keyword}`
   },
   {
     title: "百度",
