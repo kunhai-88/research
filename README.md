@@ -22,5 +22,12 @@
 
 ## 本地使用
 ```
+npm install
+npm run start
+```
+
+## 生产环境使用
+
+```
 npm run build
 ```
