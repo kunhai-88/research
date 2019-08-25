@@ -71,7 +71,10 @@ export const tabs = (keyword)=>[
     title: "Bilibili",
     link: `https://search.bilibili.com/all?keyword=${keyword}`
   },
-  
+  {
+    title: "音乐",
+    link: `https://music.163.com/#/search/m/?s=${keyword}`
+  },
   {
     title: "搜课",
     link: `http://www.souke.xyz/result#q=${keyword}`
