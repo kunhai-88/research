@@ -11,7 +11,7 @@
 
 # Research
 平时搜索搜索时，有时在单一的搜索引擎找不到想要的内容。复制关键字到其他搜索引擎再次搜索时感觉比较麻烦，浪费时间。所以做了一个同步关键字到其他搜索引擎的元搜索工具。
-[Research](http://www.suiyuanka.com/),快速搜索相关内容.
+[Research](http://www.suiyuanka.com/),快速找到你想要的内容.
 
 
  <img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/screenshot.png" width="100%" />
