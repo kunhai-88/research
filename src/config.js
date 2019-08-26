@@ -76,6 +76,14 @@ export const tabs = (keyword)=>[
     link: `https://music.163.com/#/search/m/?s=${keyword}`
   },
   {
+    title: "京东",
+    link: `https://search.jd.com/Search?keyword=${keyword}&enc=utf-8&spm=2.1.`
+  },
+  {
+    title: "淘宝",
+    link: `https://s.taobao.com/search?q=${keyword}`
+  },
+  {
     title: "搜课",
     link: `http://www.souke.xyz/result#q=${keyword}`
   },
