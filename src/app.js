@@ -107,7 +107,7 @@ export default compose(
                 title={title}
                 key={link}
                 href={link}
-                target="blank"
+                target="_blank"
                 className={style.Link}
               >
                 {title}
@@ -144,7 +144,7 @@ export default compose(
           )}
         </div>
         <footer className={style.Footer}>
-         <a className={style.Github} href="https://github.com/ifrontend-xyz/research" target="_blank">Github</a> © 2019 Research Created by Andy &nbsp; | &nbsp; 蜀ICP备18015889号-1
+        <a  className={style.Github} href="https://support.qq.com/product/82343" target="_blank" >吐个槽</a> <a className={style.Github} href="https://github.com/ifrontend-xyz/research" target="_blank">Github</a> © 2019 Research Created by Andy &nbsp; | &nbsp; 蜀ICP备18015889号-1
         </footer>
       </div>
     ) : (
