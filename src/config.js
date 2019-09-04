@@ -72,6 +72,10 @@ export const tabs = (keyword)=>[
     link: `https://search.bilibili.com/all?keyword=${keyword}`
   },
   {
+    title: "鲸准",
+    link: `https://rong.36kr.com/landing/detail?type=company&sortField=MATCH_RATE&kw=${keyword}`
+  },
+  {
     title: "音乐",
     link: `https://music.163.com/#/search/m/?s=${keyword}`
   },
