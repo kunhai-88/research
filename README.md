@@ -16,7 +16,11 @@
 
  <img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/screenshot.png" width="100%" />
 
-## 设置成默认搜索，在地址栏中使用效果更佳
+ ## 在谷歌浏览器设置为默认
+<img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/guide1.png" width="100%" />
+<img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/guide2.jpg" width="100%" />
+<img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/guide3.jpg" width="100%" />
+<img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/guide4.jpg" width="100%" />
 
 ## 修改src/config.js,个性化配置自己的元搜索。
 
