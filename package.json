@@ -28,8 +28,8 @@
     "cpy-cli": "^2.0.0",
     "css-loader": "^2.1.1",
     "query-string": "^6.3.0",
-    "react": "16.4.0",
-    "react-dom": "16.4.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-tabtab": "^2.0.0",
     "recompose": "^0.30.0"
   },

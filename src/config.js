@@ -44,6 +44,10 @@ export const tabs = (keyword)=>[
     link: `https://www.baidu.com/s?wd=${keyword}`
   },
   {
+    title: "Bing",
+    link: `https://cn.bing.com/search?q=${keyword}&ensearch=1`
+  },
+  {
     title: "微博",
     link: `https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`,
   },
@@ -63,6 +67,7 @@ export const tabs = (keyword)=>[
     title: "SegmentFault",
     link:  `https://segmentfault.com/search?q=${keyword}`,
   },
+  
   {
     title: "Yarn",
     link: `https://www.yarnpkg.com/zh-Hans/packages?q=${keyword}`
