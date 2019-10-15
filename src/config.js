@@ -78,7 +78,7 @@ export const tabs = (keyword)=>[
   },
   {
     title: "鲸准",
-    link: `https://rong.36kr.com/landing/detail?type=company&sortField=MATCH_RATE&kw=${keyword}`
+    link: `https://rong.jingdata.com/landing/detail?kw=${keyword}`
   },
   {
     title: "音乐",
