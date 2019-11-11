@@ -24,6 +24,10 @@ export const links = keyword => [
     link: `https://juejin.im/search?query=${keyword}&type=all`
   },
   {
+    title: "Magi",
+    link: `https://magi.com/search?q=${keyword}`,
+  },
+  {
     title: "NPM",
     link: `https://www.npmjs.com/search?q=${keyword}`
   },
