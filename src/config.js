@@ -97,8 +97,8 @@ export const tabs = (keyword)=>[
     link: `https://s.taobao.com/search?q=${keyword}`
   },
   {
-    title: "搜课",
-    link: `http://www.souke.xyz:88/result#q=${keyword}`
+    title: "中国大学",
+    link: `https://www.icourse163.org/search.htm?search=${keyword}`
   },
   
 ];
