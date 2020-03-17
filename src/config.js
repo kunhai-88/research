@@ -4,6 +4,10 @@ export const links = keyword => [
     link: `https://www.dogedoge.com/results?q=${keyword}`
   },
   {
+    title: "翻译",
+    link: `https://fanyi.baidu.com/#en/zh/${keyword}`,
+  },
+  {
     title: "Github",
     link: `https://github.com/search?q=${keyword}`
   },
@@ -43,27 +47,20 @@ export const links = keyword => [
 
 
 export const tabs = (keyword)=>[
-
+  {
+    title: "Bing",
+    link: `https://cn.bing.com/search?q=${keyword}`
+  },
   {
     title: "百度",
     link: `https://www.baidu.com/s?wd=${keyword}`
   },
-  {
-    title: "Bing",
-    link: `https://cn.bing.com/search?q=${keyword}&ensearch=1`
-  },
+  
   {
     title: "微博",
     link: `https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`,
   },
-  {
-    title: "悟空",
-    link: `https://www.wukong.com/search/?keyword=${keyword}`,
-  },
-  {
-    title: "翻译",
-    link: `https://fanyi.baidu.com/#en/zh/${keyword}`,
-  },
+ 
   {
     title: "语雀",
     link: `https://www.yuque.com/search?&q=${keyword}`,
