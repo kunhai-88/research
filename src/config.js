@@ -4,10 +4,6 @@ export const links = keyword => [
     link: `https://www.dogedoge.com/results?q=${keyword}`
   },
   {
-    title: "翻译",
-    link: `https://fanyi.baidu.com/#en/zh/${keyword}`,
-  },
-  {
     title: "Github",
     link: `https://github.com/search?q=${keyword}`
   },
@@ -55,7 +51,10 @@ export const tabs = (keyword)=>[
     title: "百度",
     link: `https://www.baidu.com/s?wd=${keyword}`
   },
-  
+  {
+    title: "翻译",
+    link: `https://cn.bing.com/dict/search?q=${keyword}`,
+  },
   {
     title: "微博",
     link: `https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`,
