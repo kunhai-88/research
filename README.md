@@ -11,9 +11,9 @@
 
 # Research
 平时搜索搜索时，有时在单一的搜索引擎找不到想要的内容。复制关键字到其他搜索引擎再次搜索时感觉比较麻烦。所以做了一个同步关键字到其他搜索引擎的元搜索工具。整合百度、Bing、微博、知乎、微信、语雀、京东等搜索结果 
-[Research](http://www.suiyuanka.com:88/),快速找到你想要的内容.
+[Research](http://search.kunhai.xyz/),快速找到你想要的内容.
 
-备案有点问题请使用http://www.suiyuanka.com:88/
+备案有点问题请使用(http://search.kunhai.xyz/)
 
 
  <img alt="Research" src="https://raw.githubusercontent.com/ifrontend-xyz/research/master/public/screenshot.png" width="100%" />

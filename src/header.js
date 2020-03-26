@@ -13,5 +13,6 @@ export default ({ onSearch, keyword, setKeyword }) => (
       onSearch={onSearch}
       onChange={setKeyword}
     />
+    <a className={style.Tip} href="http://search.kunhai.xyz/">请使用新地址</a>
   </header>
 );
