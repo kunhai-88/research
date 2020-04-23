@@ -180,7 +180,7 @@ const config = {
       },
       {
         test: /\.(png|jpg|jpeg|svg)/,
-        use: "file-loader"
+        use: "url-loader"
       },
       {
         test: /\.(woff|eot|ttf)/,
