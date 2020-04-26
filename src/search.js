@@ -29,7 +29,7 @@ export default compose(
       if(onChange){
         timer = setTimeout(()=>{
           onChange(value);
-        },300)
+        },450)
       }
     },
     onKeyUp: ({ onSearch, innerValue }) => e => {
