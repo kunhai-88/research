@@ -39,13 +39,14 @@ export const links = keyword => [
 
 
 export const tabs = (keyword)=>[
-  {
-    title: "多吉",
-    link: `https://www.dogedoge.com/results?q=${keyword}`
-  },
+ 
   {
     title: "Bing",
     link: `https://cn.bing.com/search?q=${keyword}`
+  },
+  {
+    title: "多吉",
+    link: `https://www.dogedoge.com/results?q=${keyword}`
   },
   {
     title: "百度",
