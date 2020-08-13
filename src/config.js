@@ -8,6 +8,10 @@ export const links = keyword => [
     link: `https://www.zhihu.com/search?type=content&q=${keyword}`
   },
   {
+    title: "多吉",
+    link: `https://www.dogedoge.com/results?q=${keyword}`
+  },
+  {
     title: "微信",
     link: `https://weixin.sogou.com/weixin?p=01030402&query=${keyword}&type=2&ie=utf8`
   },
@@ -43,10 +47,6 @@ export const tabs = (keyword)=>[
   {
     title: "Bing",
     link: `https://cn.bing.com/search?q=${keyword}`
-  },
-  {
-    title: "多吉",
-    link: `https://www.dogedoge.com/results?q=${keyword}`
   },
   {
     title: "百度",
