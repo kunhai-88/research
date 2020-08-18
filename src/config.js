@@ -32,6 +32,10 @@ export const links = keyword => [
     link: `https://magi.com/search?q=${keyword}`,
   },
   {
+    title: "鲸准",
+    link: `https://rong.jingdata.com/landing/detail?kw=${keyword}`
+  },
+  {
     title: "NPM",
     link: `https://www.npmjs.com/search?q=${keyword}`
   },
@@ -78,22 +82,20 @@ export const tabs = (keyword)=>[
     title: "Bilibili",
     link: `https://search.bilibili.com/all?keyword=${keyword}`
   },
-  {
-    title: "鲸准",
-    link: `https://rong.jingdata.com/landing/detail?kw=${keyword}`
-  },
+  
   {
     title: "音乐",
     link: `https://music.163.com/#/search/m/?s=${keyword}`
   },
   {
+    title: "豆瓣",
+    link: `https://www.douban.com/search?q=${keyword}`
+  },
+  {
     title: "京东",
     link: `https://search.jd.com/Search?keyword=${keyword}&enc=utf-8&spm=2.1.`
   },
-  {
-    title: "淘宝",
-    link: `https://s.taobao.com/search?q=${keyword}`
-  },
+  
   {
     title: "中国大学",
     link: `https://www.icourse163.org/search.htm?search=${keyword}`
