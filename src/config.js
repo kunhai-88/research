@@ -36,6 +36,10 @@ export const links = keyword => [
     link: `https://rong.jingdata.com/landing/detail?kw=${keyword}`
   },
   {
+    title: "得到",
+    link: `https://www.biji.com/?search=${keyword}`
+  },
+  {
     title: "NPM",
     link: `https://www.npmjs.com/search?q=${keyword}`
   },
