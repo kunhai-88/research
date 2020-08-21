@@ -77,7 +77,10 @@ export const tabs = (keyword)=>[
     title: "SegmentFault",
     link:  `https://segmentfault.com/search?q=${keyword}`,
   },
-  
+  {
+    title: "百度指数",
+    link:  `https://index.baidu.com/v2/main/index.html#/trend/${keyword}?words=${keyword}`,
+  },
   {
     title: "Yarn",
     link: `https://www.yarnpkg.com/zh-Hans/packages?q=${keyword}`
