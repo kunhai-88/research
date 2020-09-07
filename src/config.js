@@ -99,10 +99,14 @@ export const tabs = (keyword)=>[
     link: `https://www.douban.com/search?q=${keyword}`
   },
   {
+    title: "TalkingData",
+    link: `http://mi.talkingdata.com/search.html?keyword=${keyword}`
+  },
+  {
     title: "京东",
     link: `https://search.jd.com/Search?keyword=${keyword}&enc=utf-8&spm=2.1.`
   },
-  
+ 
   {
     title: "中国大学",
     link: `https://www.icourse163.org/search.htm?search=${keyword}`
