@@ -99,6 +99,10 @@ export const tabs = (keyword)=>[
     link: `https://www.douban.com/search?q=${keyword}`
   },
   {
+    title: "产品",
+    link: `http://api.woshipm.com/search/list.html?key=${keyword}`
+  },
+  {
     title: "TalkingData",
     link: `http://mi.talkingdata.com/search.html?keyword=${keyword}`
   },

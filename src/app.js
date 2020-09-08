@@ -144,7 +144,7 @@ export default compose(
           )}
         </div>
         <footer className={style.Footer}>
-        <a  className={style.Github} href="https://support.qq.com/product/82343" target="_blank" >吐个槽</a> <a className={style.Github} href="https://github.com/ifrontend-xyz/research" target="_blank">Github</a> © 2019 Research Created by Andy &nbsp; | &nbsp; 蜀ICP备18015889号-1
+        <a  className={style.Github} href="https://support.qq.com/product/82343" target="_blank" >反馈</a> <a className={style.Github} href="https://github.com/ifrontend-xyz/research" target="_blank">Github</a> © 2019-2020 Research Created by Andy &nbsp; | &nbsp; 蜀ICP备18015889号-1
         </footer>
       </div>
     ) : (
