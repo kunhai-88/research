@@ -37,7 +37,7 @@ export const links = keyword => [
   },
   {
     title: "得到",
-    link: `https://www.biji.com/?search= ${keyword}`
+    link: `https://www.dedao.cn/?search= ${keyword}`
   },
   {
     title: "NPM",
