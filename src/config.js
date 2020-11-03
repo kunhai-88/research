@@ -46,7 +46,11 @@ export const links = keyword => [
   {
     title: "Stackoverflow",
     link: `https://stackoverflow.com/search?q=${keyword}`
-  }
+  },
+  {
+    title: "中国大学",
+    link: `https://www.icourse163.org/search.htm?search=${keyword}#/`
+  },
 ];
 
 
@@ -111,10 +115,6 @@ export const tabs = (keyword)=>[
     link: `https://search.jd.com/Search?keyword=${keyword}&enc=utf-8&spm=2.1.`
   },
  
-  {
-    title: "中国大学",
-    link: `https://www.icourse163.org/search.htm?search=${keyword}`
-  },
   
 ];
 
