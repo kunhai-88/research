@@ -61,6 +61,10 @@ export const tabs = (keyword)=>[
     link: `https://cn.bing.com/search?q=${keyword}`
   },
   {
+    title: "搜狗",
+    link: `https://www.sogou.com/web?query=${keyword}`
+  },
+  {
     title: "百度",
     link: `https://www.baidu.com/s?wd=${keyword}`
   },
