@@ -39,7 +39,7 @@ export default compose(
         window.innerHeight ||
         document.documentElement.clientHeight ||
         document.body.clientHeight;
-      setHeight(height - 90);
+      setHeight(height+150);
     }
   }),
   withHandlers({
