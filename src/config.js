@@ -118,7 +118,10 @@ export const tabs = (keyword)=>[
     title: "京东",
     link: `https://search.jd.com/Search?keyword=${keyword}&enc=utf-8&spm=2.1.`
   },
- 
+  {
+    title: "InfoQ",
+    link: `https://s.geekbang.org/search/c=0/k=${keyword}/t=`
+  },
   
 ];
 
