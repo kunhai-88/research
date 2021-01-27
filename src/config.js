@@ -28,8 +28,8 @@ export const links = keyword => [
     link: `https://juejin.im/search?query=${keyword}&type=all`
   },
   {
-    title: "Magi",
-    link: `https://magi.com/search?q=${keyword}`,
+    title: "199it",
+    link: `http://search.199it.com/?q=${keyword}`,
   },
   {
     title: "鲸准",
