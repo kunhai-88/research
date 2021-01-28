@@ -12,6 +12,10 @@ export const links = keyword => [
     link: `https://www.dogedoge.com/results?q=${keyword}`
   },
   {
+    title: "Medium",
+    link: `https://medium.com/search?q=${keyword}`
+  },
+  {
     title: "微信",
     link: `https://weixin.sogou.com/weixin?p=01030402&query=${keyword}&type=2&ie=utf8`
   },
@@ -60,10 +64,7 @@ export const tabs = (keyword)=>[
     title: "Bing",
     link: `https://cn.bing.com/search?q=${keyword}`
   },
-  {
-    title: "搜狗",
-    link: `https://www.sogou.com/web?query=${keyword}`
-  },
+ 
   {
     title: "百度",
     link: `https://www.baidu.com/s?wd=${keyword}`
