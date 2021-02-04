@@ -48,8 +48,8 @@ export const links = keyword => [
     link: `https://www.npmjs.com/search?q=${keyword}`
   },
   {
-    title: "Stackoverflow",
-    link: `https://stackoverflow.com/search?q=${keyword}`
+    title: "汉语",
+    link: `https://hanyu.sogou.com/result?query=${keyword}`
   },
   {
     title: "中国大学",
@@ -87,7 +87,7 @@ export const tabs = (keyword)=>[
     link:  `https://segmentfault.com/search?q=${keyword}`,
   },
   {
-    title: "百度指数",
+    title: "指数",
     link:  `https://index.baidu.com/v2/main/index.html#/trend/${keyword}?words=${keyword}`,
   },
   {
