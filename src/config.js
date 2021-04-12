@@ -8,10 +8,6 @@ export const links = keyword => [
     link: `https://www.zhihu.com/search?type=content&q=${keyword}`
   },
   {
-    title: "多吉",
-    link: `https://www.dogedoge.com/results?q=${keyword}`
-  },
-  {
     title: "Medium",
     link: `https://medium.com/search?q=${keyword}`
   },
