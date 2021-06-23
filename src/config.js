@@ -8,6 +8,10 @@ export const links = keyword => [
     link: `https://www.zhihu.com/search?type=content&q=${keyword}`
   },
   {
+    title: "抖音",
+    link: `https://www.douyin.com/search/${keyword}`,
+  },
+  {
     title: "Medium",
     link: `https://medium.com/search?q=${keyword}`
   },
@@ -70,6 +74,14 @@ export const tabs = (keyword)=>[
     link: `https://cn.bing.com/dict/search?q=${keyword}`,
   },
   {
+    title: "快手",
+    link: `https://www.kuaishou.com/search/video?searchKey=${keyword}`,
+  },
+  {
+    title: "Bilibili",
+    link: `https://search.bilibili.com/all?keyword=${keyword}`
+  },
+  {
     title: "微博",
     link: `https://s.weibo.com/weibo/${keyword}?topnav=1&wvr=6`,
   },
@@ -90,10 +102,7 @@ export const tabs = (keyword)=>[
     title: "Yarn",
     link: `https://www.yarnpkg.com/zh-Hans/packages?q=${keyword}`
   },
-  {
-    title: "Bilibili",
-    link: `https://search.bilibili.com/all?keyword=${keyword}`
-  },
+  
   
   {
     title: "音乐",
