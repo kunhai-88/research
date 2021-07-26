@@ -3,6 +3,7 @@ export const links = keyword => [
     title: "Github",
     link: `https://github.com/search?q=${keyword}`
   },
+  
   {
     title: "知乎",
     link: `https://www.zhihu.com/search?type=content&q=${keyword}`
@@ -12,6 +13,14 @@ export const links = keyword => [
     link: `https://www.douyin.com/search/${keyword}`,
   },
   {
+    title: "百度",
+    link: `https://www.baidu.com/s?wd=${keyword}`
+  },
+  {
+    title: "Google",
+    link: `https://www.google.com.hk/search?safe=strict&source=hp&q=${keyword}&oq=${keyword}`
+  },
+  {
     title: "Medium",
     link: `https://medium.com/search?q=${keyword}`
   },
@@ -19,10 +28,7 @@ export const links = keyword => [
     title: "微信",
     link: `https://weixin.sogou.com/weixin?p=01030402&query=${keyword}&type=2&ie=utf8`
   },
-  {
-    title: "Google",
-    link: `https://www.google.com.hk/search?safe=strict&source=hp&q=${keyword}&oq=${keyword}`
-  },
+ 
   {
     title: "简书",
     link: `https://www.jianshu.com/search?q=${keyword}`
@@ -64,11 +70,11 @@ export const tabs = (keyword)=>[
     title: "Bing",
     link: `https://cn.bing.com/search?q=${keyword}`
   },
- 
   {
-    title: "百度",
-    link: `https://www.baidu.com/s?wd=${keyword}`
+    title: "夸克",
+    link: `https://quark.sm.cn/s?q=${keyword}`
   },
+  
   {
     title: "翻译",
     link: `https://cn.bing.com/dict/search?q=${keyword}`,
