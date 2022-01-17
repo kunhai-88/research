@@ -84,7 +84,7 @@ const config = {
 
   output: {
     path: path.resolve(__dirname, "./dist"),
-    publicPath: "/",
+    // publicPath: "/",
     filename: "[name].[hash].bundle.js",
     chunkFilename: "[name].[hash].bundle.js",
     globalObject: "this"

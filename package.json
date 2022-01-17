@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "better-npm-run start",
-    "build": "better-npm-run build && cpy -r public/* dist/ "
+    "build": "better-npm-run build "
   },
   "betterScripts": {
     "build": {
