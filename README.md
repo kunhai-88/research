@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://app.betasmart.tech/research">
-    <img alt="Research" src="http://www.suiyuanka.com/favicon.png" width="64" />
+    <img alt="Research" src="https://app.betasmart.tech/research/favicon.png" width="64" />
   </a>
 </p>
 <h1 align="center">
